@@ -1,13 +1,28 @@
 package todo_list_cli;
 
+import java.util.Scanner;
+
 /**
- * Hello world!
+ * 
  *
  */
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+
+        try (Scanner read = new Scanner(System.in)) {
+
+            
+        TodoApp todo = new TodoApp();
+        TextInterface uiText = new TextInterface(read, todo);
+
+        uiText.start();
+
+
+        } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+        }
+
     }
 }
